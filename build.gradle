@@ -1,0 +1,86 @@
+defaultTasks 'clean', 'test', 'aggregate'
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+group 'com.indracompany.qa'
+version '1.0-SNAPSHOT'
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.1.5")
+    }
+}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+ext {
+    slf4jVersion = '1.7.7'
+    serenityCoreVersion = '2.1.5'
+    serenityCucumberVersion = '1.9.50'
+    junitVersion = '4.13.1'
+    assertJVersion = '3.8.0'
+    logbackVersion = '1.2.3'
+}
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+    testCompileOnly 'org.projectlombok:lombok:1.18.20'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
+    implementation "ch.qos.logback:logback-classic:${logbackVersion}"
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
+    testImplementation  "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-cucumber:${serenityCucumberVersion}",
+            "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-ensure:${serenityCoreVersion}",
+            "junit:junit:${junitVersion}",
+            "org.assertj:assertj-core:${assertJVersion}"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    //*****************dependecias para el manejo de servicos tipo REST*****************
+
+    // https://mvnrepository.com/artifact/io.rest-assured/rest-assured
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.1'
+    // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all
+    testImplementation group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+
+    //****************dependencias para la lectura de archivos excel*******************
+
+    // https://mvnrepository.com/artifact/org.apache.xmlbeans/xmlbeans
+    implementation group: 'org.apache.xmlbeans', name: 'xmlbeans', version: '3.0.1'
+    // https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad
+    implementation 'org.apache.poi:poi-scratchpad:4.1.2'
+    // https://mvnrepository.com/artifact/org.apache.poi/poi
+    implementation group: 'org.apache.poi', name: 'poi', version: '4.1.2'
+    // https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.2'
+    // https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas
+    implementation group: 'org.apache.poi', name: 'poi-ooxml-schemas', version: '4.1.2'
+    // https://mvnrepository.com/artifact/org.apache.poi/poi-excelant
+    implementation group: 'org.apache.poi', name: 'poi-excelant', version: '4.1.2'
+
+    //***********dependencias para manejo de base de datos oracle ejecucion de querys y sp***************
+
+    // Get 21.1.0.0 Oracle JDBC driver (ojdbc8.jar) and other companion jars
+    implementation("com.oracle.database.jdbc:ojdbc8-production:21.1.0.0")
+// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.4.0'
+
+}
+
+test {
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
+}
+gradle.startParameter.continueOnFailure = true
+test.finalizedBy(aggregate)

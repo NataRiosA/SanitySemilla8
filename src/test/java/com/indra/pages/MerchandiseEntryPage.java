@@ -1,0 +1,154 @@
+package com.indra.pages;
+
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.DefaultUrl;
+import org.openqa.selenium.WebDriver;
+
+@DefaultUrl("http://10.69.60.77:8180/tigo-pos-web/logistica/entradaMasiva/index.jsf")
+public class MerchandiseEntryPage extends PageObject {
+    public MerchandiseEntryPage(WebDriver driver) {
+            super(driver);
+        }
+
+    @FindBy(id = "formMenu:j_id19_span")
+    WebElementFacade inventory;
+
+    @FindBy(id = "formMenu:j_id26")
+    WebElementFacade MerchandiseEntry;
+
+    @FindBy(id = "formMenu:j_id60")
+    WebElementFacade massMerchandiseEntry;
+
+    @FindBy(id = "form1:idCanal")
+    WebElementFacade channel;
+
+    @FindBy(xpath = "/html/body[2]/form[2]/div/div[1]/div[2]/table/tbody/tr[1]/td[2]/select/option[5]")
+    WebElementFacade storeChannel;
+
+    @FindBy(id = "form1:idMotivo")
+    WebElementFacade reason;
+
+    @FindBy(xpath = "/html/body[2]/form[2]/div/div[1]/div[2]/table/tbody/tr[3]/td[2]/select/option[6]")
+    WebElementFacade reasonMerchandiseEntry;
+
+    @FindBy(id = "form1:idPdv")
+    WebElementFacade pointSale;
+
+    @FindBy(xpath = "/html/body[2]/form[2]/div/div[1]/div[2]/table/tbody/tr[1]/td[4]/span/select/option[169]")
+    WebElementFacade pointSaleStore;
+
+    @FindBy(xpath = "/html/body[2]/form[1]/div/table/tbody/tr/td[2]/table/tbody/tr[1]/td[2]/span")
+    WebElementFacade storeIndra;
+
+    @FindBy(id = "form1:j_id_jsp_1849905534_57")
+    WebElementFacade selectReason;
+
+    @FindBy(xpath = "//div[@id='form1:panelBusqueda_body']/input[@class='boton1']")
+    WebElementFacade bulkUploadItems;
+
+    @FindBy(id = "fileUploadModalShadowDiv")
+    WebElementFacade window;
+
+    @FindBy(xpath = "//input[contains(@id,'formload:uploadFile:file')]")
+    WebElementFacade uploadFile;
+
+    @FindBy(id = "formload:uploadFile:upload2")
+    WebElementFacade uploadFile2;
+
+    @FindBy(xpath = "/html/body[1]/div/div[2]/div[14]/table/tbody/tr[2]/td/form/div/div/div[2]/table/tbody/tr[2]/td/table/tbody/tr/td/span/span/div/div[2]/span")
+    WebElementFacade compare;
+
+    @FindBy(id = "formload:j_id_jsp_1106178179_23pc4")
+    WebElementFacade upload;
+
+    @FindBy(xpath = "/html/body[2]/form[2]/div/table[1]/tbody/tr/td/dl/dt/span[2]")
+    WebElementFacade compare2;
+
+    @FindBy (xpath= "//table[@id='form1:errorGrid']/tbody/tr/td/dl/dt/span[@class='rich-messages-label']")
+    WebElementFacade ResultLoad;
+
+    @FindBy(xpath = "(//table[@class='mystyle']/tbody/tr/td[2]/span)[1]")
+    WebElementFacade puntoDeVenta;
+
+    public WebElementFacade getPuntoDeVenta() {
+        return puntoDeVenta;
+    }
+
+    public WebElementFacade getResultLoad() {
+        return ResultLoad;
+    }
+
+    public WebElementFacade getInventory() {
+        return inventory;
+    }
+
+    public WebElementFacade getMerchandiseEntry() {
+        return MerchandiseEntry;
+    }
+
+    public WebElementFacade getMassMerchandiseEntry() {
+        return massMerchandiseEntry;
+    }
+
+    public WebElementFacade getChannel() {
+        return channel;
+    }
+
+    public WebElementFacade getStoreChannel() {
+        return storeChannel;
+    }
+
+    public WebElementFacade getReason() {
+        return reason;
+    }
+
+    public WebElementFacade getReasonMerchandiseEntry() {
+        return reasonMerchandiseEntry;
+    }
+
+    public WebElementFacade getPointSale() {
+        return pointSale;
+    }
+
+    public WebElementFacade getPointSaleStore() {
+        return pointSaleStore;
+    }
+
+    public WebElementFacade getStoreIndra() {
+        return storeIndra;
+    }
+
+    public WebElementFacade getSelectReason() {
+        return selectReason;
+    }
+
+    public WebElementFacade getBulkUploadItems() {
+        return bulkUploadItems;
+    }
+
+    public WebElementFacade getWindow() {
+        return window;
+    }
+
+    public WebElementFacade getUploadFile() {
+        return uploadFile;
+    }
+
+    public WebElementFacade getUploadFile2() {
+        return uploadFile2;
+    }
+
+    public WebElementFacade getCompare() {
+        return compare;
+    }
+
+    public WebElementFacade getUpload() {
+        return upload;
+    }
+
+    public WebElementFacade getCompare2() {
+        return compare2;
+    }
+}
