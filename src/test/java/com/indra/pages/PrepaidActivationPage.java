@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 
 
 @DefaultUrl("http://10.69.60.85:8280/portal/CRMPortal/Venta")
-public class PrepaidActivationPage extends PageObject{
+public class    PrepaidActivationPage extends PageObject{
 
     public PrepaidActivationPage(WebDriver driver) {
         super(driver);

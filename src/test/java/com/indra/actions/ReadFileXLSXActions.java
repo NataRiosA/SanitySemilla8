@@ -21,7 +21,7 @@ public class ReadFileXLSXActions {
             FileInputStream f = new FileInputStream("src/test/resources/config_data/data.xlsx");
 
             XSSFWorkbook libro = new XSSFWorkbook(f);
-            XSSFSheet hoja = libro.getSheetAt(1);
+            XSSFSheet hoja = libro.getSheetAt(2);
             Iterator<Row> filas = hoja.iterator();
             Iterator<Cell> celdas;
             Row fila;

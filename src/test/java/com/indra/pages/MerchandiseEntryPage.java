@@ -12,31 +12,31 @@ public class MerchandiseEntryPage extends PageObject {
             super(driver);
         }
 
-    @FindBy(id = "formMenu:j_id19_span")
+    @FindBy(xpath = "//span[contains(@id,'formMenu:j_id20_span')]")
     WebElementFacade inventory;
 
-    @FindBy(id = "formMenu:j_id26")
+    @FindBy(xpath = "//div[@id='formMenu:j_id27']")
     WebElementFacade MerchandiseEntry;
 
-    @FindBy(id = "formMenu:j_id60")
+    @FindBy(xpath = "//span[contains(@id,'formMenu:j_id61:anchor')]")
     WebElementFacade massMerchandiseEntry;
 
     @FindBy(id = "form1:idCanal")
     WebElementFacade channel;
 
-    @FindBy(xpath = "/html/body[2]/form[2]/div/div[1]/div[2]/table/tbody/tr[1]/td[2]/select/option[5]")
+    @FindBy(xpath = "//*[@id='form1:idCanal']/option[5]")
     WebElementFacade storeChannel;
 
     @FindBy(id = "form1:idMotivo")
     WebElementFacade reason;
 
-    @FindBy(xpath = "/html/body[2]/form[2]/div/div[1]/div[2]/table/tbody/tr[3]/td[2]/select/option[6]")
+    @FindBy(xpath = "//*[@id='form1:idMotivo']/option[6]")
     WebElementFacade reasonMerchandiseEntry;
 
     @FindBy(id = "form1:idPdv")
     WebElementFacade pointSale;
 
-    @FindBy(xpath = "/html/body[2]/form[2]/div/div[1]/div[2]/table/tbody/tr[1]/td[4]/span/select/option[169]")
+    @FindBy(xpath = "//*[@id='form1:idPdv']/option[39]")
     WebElementFacade pointSaleStore;
 
     @FindBy(xpath = "/html/body[2]/form[1]/div/table/tbody/tr/td[2]/table/tbody/tr[1]/td[2]/span")
@@ -45,10 +45,10 @@ public class MerchandiseEntryPage extends PageObject {
     @FindBy(id = "form1:j_id_jsp_1849905534_57")
     WebElementFacade selectReason;
 
-    @FindBy(xpath = "//div[@id='form1:panelBusqueda_body']/input[@class='boton1']")
+    @FindBy(xpath = "//input[contains(@id,'form1:j_id_jsp_1849905534_66')]")
     WebElementFacade bulkUploadItems;
 
-    @FindBy(id = "fileUploadModalShadowDiv")
+    @FindBy(xpath = "//div[contains(@id,'fileUploadModalHeader')]")
     WebElementFacade window;
 
     @FindBy(xpath = "//input[contains(@id,'formload:uploadFile:file')]")

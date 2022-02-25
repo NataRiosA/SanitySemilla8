@@ -20,9 +20,9 @@ public class InventoryAllocationActions extends InventoryAllocationPage {
 
         Actions actions = new Actions(getDriver());
 
-        WebElement inventory = getDriver().findElement(By.id("formMenu:j_id19_span"));
+        WebElement inventory = getDriver().findElement(By.xpath("//span[contains(@id,'formMenu:j_id20_span')]"));
         actions.moveToElement(inventory).build().perform();
-        WebElement inventoryAllocation = getDriver().findElement(By.id("formMenu:j_id21"));
+        WebElement inventoryAllocation = getDriver().findElement(By.id("formMenu:j_id22:anchor"));
         actions.moveToElement(inventoryAllocation).build().perform();
         getSubInventoryAllocation().click();
         getDriver().navigate().refresh();
@@ -44,11 +44,11 @@ public class InventoryAllocationActions extends InventoryAllocationPage {
     }
 
     public void selectInventoryType(){
-
         getTipoProducto().waitUntilClickable();
         getTipoProducto().click();
         Select dropDown = new Select(getDriver().findElement(By.xpath("//select[@id='form1:tipoProd']")));
         dropDown.selectByValue("19");
+        getX().click();
     }
 
     public void click_addProducts(){

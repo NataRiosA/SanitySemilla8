@@ -68,7 +68,7 @@ public class CesionPortalCRMActions extends CesionPortalCRMPage {
 
     public void writePhoneNumber(String phonumber){
         enter(phonumber).into(getPhoneNumber());
-        getPhoneNumber().sendKeys(Keys.TAB);
+        getPhoneNumber().sendKeys(Keys.ENTER);
     }
 
     public void selectAnnualRenewal(){

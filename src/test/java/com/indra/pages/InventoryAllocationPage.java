@@ -12,13 +12,17 @@ public class InventoryAllocationPage extends PageObject {
     public InventoryAllocationPage(WebDriver driver) {
         super(driver);
     }
-    @FindBy(id = "form1:panelSeleccion_header")
+
+    @FindBy(xpath = "//span[contains(@id,'formMenu:j_id20_span')]")
     WebElementFacade inventoryTitle;
 
-    @FindBy(id = "formMenu:j_id21:anchor")
+    @FindBy(id = "formMenu:j_id22:anchor")
     WebElementFacade inventoryAllocation;
 
-    @FindBy(id = "formMenu:j_id38:anchor")
+    @FindBy(xpath = "/html/body[1]/div[2]/div[2]/div[14]/div/img")
+    WebElementFacade x;
+
+    @FindBy(id = "formMenu:j_id39:anchor")
     WebElementFacade subInventoryAllocation;
 
     @FindBy(xpath = "(//table[@class='mystyle']/tbody/tr/td[2]/span)[1]")
@@ -29,10 +33,11 @@ public class InventoryAllocationPage extends PageObject {
 
     @FindBy(xpath="//input[@id='form1:cedula']")
     WebElementFacade vendedor;
-    @FindBy(xpath = "//select[@id='form1:tipoProd']")
+
+    @FindBy(xpath = "//*[@id='form1:tipoProd']/option[9]")
     WebElementFacade tipoProducto;
 
-    @FindBy(xpath = "//div[@id='form1:panelBusqueda_body']/input[@class='boton1']")
+    @FindBy(xpath = "//input[contains(@id,'form1:j_id_jsp_1482417417_84')]")
     WebElementFacade btnAgregarProductos;
 
     @FindBy(xpath ="//input[@id='form1:selectArticuloscomboboxField']")
@@ -44,7 +49,7 @@ public class InventoryAllocationPage extends PageObject {
     @FindBy(id = "form1:dataList")
     WebElementFacade tableCargaMasiva;
 
-    @FindBy (xpath ="//a[@id='form1:dataList:0:link1']/img[@alt='Carga Masiva']")
+    @FindBy(xpath = "//img[contains(@alt,'Carga Masiva')]")
     WebElementFacade btnCargaMasiva;
 
     @FindBy(id = "formUpload:upload:file")
@@ -128,5 +133,9 @@ public class InventoryAllocationPage extends PageObject {
 
     public WebElementFacade getBtnAcceptInventory(){
         return btnAcceptInventory;
+    }
+
+    public WebElementFacade getX(){
+        return x;
     }
 }
