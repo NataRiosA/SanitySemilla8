@@ -29,25 +29,25 @@ Feature: Sanity limpieza y aprovisionamiento de recursos
     Then Se deberia ver en pantalla unica la linea activa en prepago
 
   @portalNintendo
-  Scenario: se requiere realizar una activacion de una linea en control
+  Scenario: se requiere realizar una activacion de una linea en control nintendo
     Given Se ingresa al portal CRM para activacion
     When Se hace activacion de una linea nintendo
     Then Se deberia ver en pantalla unica la linea activa nintendo
 
   @portalCesionPreAPos
-  Scenario: se requiere realizar una activacion de una linea en prepago
+  Scenario: se requiere realizar cambio de linea de Pre a Pos
     Given Se ingresa al portal CRM para activacion
     When Se hace la cesion de contrato de una linea pre a pos
     Then Se deberia ver en pantalla unica la linea cedida pre
 
   @portalCesionPosAPre
-  Scenario: se requiere realizar una activacion de una linea en prepago
+  Scenario: se requiere realizar cambio de linea de Pos a Pre
     Given Se ingresa al portal CRM para activacion
     When Se hace la cesion de contrato de una linea pos a pre
     Then Se deberia ver en pantalla unica la linea cedida pos
 
   @portalAvanger
-  Scenario: se requiere realizar una activacion de una linea en control
+  Scenario: se requiere realizar una activacion de una linea en control avenger
     Given Se ingresa al portal CRM para activacion
     When Se hace activacion de una linea avanger
     Then Se deberia ver en pantalla unica la linea activa avanger

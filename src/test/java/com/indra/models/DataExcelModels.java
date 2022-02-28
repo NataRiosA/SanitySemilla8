@@ -50,6 +50,10 @@ public class DataExcelModels{
     String user;
     String password;
 
+    String hostSSH;
+    String userSSh;
+    String passwordSSH;
+
 
     public String getVendedorPrepago() {
         fileXLSX.readFileExcel();
@@ -279,5 +283,23 @@ public class DataExcelModels{
         fileXLSX.readFileExcel();
         CedulaClienteAvanger = fileXLSX.excelArray.get(12).get(1);
         return CedulaClienteAvanger;
+    }
+
+    public String getHostSSH() {
+        fileXLSX.readFileExcel();
+        hostSSH = fileXLSX.excelArray.get(1).get(8);
+        return hostSSH;
+    }
+
+    public String getUserSSh() {
+        fileXLSX.readFileExcel();
+        userSSh= fileXLSX.excelArray.get(1).get(9);
+        return userSSh;
+    }
+
+    public String getPasswordSSH() {
+        fileXLSX.readFileExcel();
+        passwordSSH= fileXLSX.excelArray.get(1).get(10);
+        return passwordSSH;
     }
 }

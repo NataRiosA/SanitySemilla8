@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/execute.feature"
         ,glue = "com.indra.steps_definitions"
         ,snippets = SnippetType.CAMELCASE
-        ,tags="@portalPrepaid"
+        //,tags="@portalCesionPosAPre"
 )
 public class SanityRunners {
 }

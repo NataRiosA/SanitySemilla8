@@ -78,6 +78,21 @@ public class CesionPortalCRMPage extends PageObject {
     @FindBy(xpath = "//form[@id='cesionContratoForm']//table/tbody[1]/tr[1]/td[1]/span[1]/ul[1]/li[6]")
     WebElementFacade mensajes;
 
+    @FindBy(id = "cesionContratoForm:claveField:clave")
+    WebElementFacade claveAsesor;
+
+    @FindBy(id="cesionContratoForm:j_id97:aseToken")
+    WebElementFacade cajonClaveAsesor;
+
+
+    public WebElementFacade getClaveAsesor() {
+        return claveAsesor;
+    }
+
+    public WebElementFacade getCajonClaveAsesor() {
+        return cajonClaveAsesor;
+    }
+
     public WebElementFacade getMensajes() {
         return mensajes;
     }

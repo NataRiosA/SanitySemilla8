@@ -1,6 +1,8 @@
 package com.indra.actions;
 
+import com.indra.models.DataExcelModels;
 import com.indra.pages.CesionPortalCRMPage;
+import com.jcraft.jsch.JSchException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
@@ -11,6 +13,9 @@ public class CesionPortalPosCRMActions extends CesionPortalCRMPage {
     public CesionPortalPosCRMActions(WebDriver driver) {
         super(driver);
     }
+    SshConnetions sshConnetions = new SshConnetions();
+    DataExcelModels excelModels = new DataExcelModels();
+    ReadFileCSV readFileCSV = new ReadFileCSV();
 
     public void initialRute(){
         postSaleClick();
@@ -19,12 +24,17 @@ public class CesionPortalPosCRMActions extends CesionPortalCRMPage {
         ContractAssignmentClick();
     }
 
-    public void executeContractAssignment(String phonenumber, String idClient,String planNumber) throws InterruptedException, AWTException {
+    public void executeContractAssignment(String phonenumber, String idClient,String planNumber) throws InterruptedException, AWTException, JSchException {
         switchToIframe();
         writePhoneNumber(phonenumber);
         getVendedor().waitUntilPresent();
         selectAnnualRenewal();
         writeNewClientNumber(idClient);
+
+        adviserKeyGeneration();
+        waitABit(1000);
+        writeAdviserKey();
+
         consultClick();
         getEmail().waitUntilPresent();
         writeVendorNumber();
@@ -162,4 +172,16 @@ public class CesionPortalPosCRMActions extends CesionPortalCRMPage {
         alert.accept();
     }
 
+    public void btnaAdviserKeyClick(){
+        getClaveAsesor().click();
+    }
+    public void writeAdviserKey(){
+        enter(readFileCSV.getToken()).into(getCajonClaveAsesor());
+        getCajonClaveAsesor().sendKeys(Keys.TAB);
+        waitABit(1000);
+    }
+
+    public void adviserKeyGeneration() throws JSchException {
+        sshConnetions.connectionSSH(excelModels.getHostSSH(),excelModels.getUserSSh(),excelModels.getPasswordSSH());
+    }
 }

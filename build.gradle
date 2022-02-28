@@ -76,6 +76,11 @@ dependencies {
 // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.4.0'
 
+    //****************dependencias para la conexion SSH *******************
+
+    // https://mvnrepository.com/artifact/com.jcraft/jsch
+    implementation group: 'com.jcraft', name: 'jsch', version: '0.1.55'
+
 }
 
 test {

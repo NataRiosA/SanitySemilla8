@@ -5,6 +5,7 @@ import com.indra.models.DataExcelModels;
 import com.indra.models.LoginEposModels;
 import com.indra.models.LoginPortalCRMModels;
 import com.indra.models.WindexModels;
+import com.jcraft.jsch.JSchException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -129,7 +130,7 @@ public class SanitySteps{
     //-----------<Sexto escenario>----------------
 
     @When("^Se hace la cesion de contrato de una linea pre a pos$")
-    public void seHaceLaCesionDeContratoDeUnaLineaPreAPos() throws InterruptedException, AWTException {
+    public void seHaceLaCesionDeContratoDeUnaLineaPreAPos() throws InterruptedException, AWTException, JSchException {
         cesionActions.initialRute();
         cesionActions.executeContractAssignment(dataExcelModels.getMsisdnPrepago(),dataExcelModels.getCedulaClientePrepago());
     }
@@ -142,7 +143,7 @@ public class SanitySteps{
     //-----------<Septimo escenario>----------------
 
     @When("^Se hace la cesion de contrato de una linea pos a pre$")
-    public void seHaceLaCesionDeContratoDeUnaLineaPosAPre() throws InterruptedException, AWTException {
+    public void seHaceLaCesionDeContratoDeUnaLineaPosAPre() throws InterruptedException, AWTException, JSchException {
         cesionActions1.initialRute();
         cesionActions1.executeContractAssignment(dataExcelModels.getMsisdnPostpago(),dataExcelModels.getCedulaClientePostpago(),"540");
     }
