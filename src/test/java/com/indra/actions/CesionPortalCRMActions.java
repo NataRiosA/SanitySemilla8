@@ -32,8 +32,8 @@ public class CesionPortalCRMActions extends CesionPortalCRMPage {
         selectAnnualRenewal();
         writeNewClientNumber(idClient);
         //optener token
-        adviserKeyGeneration();
-        waitABit(1000);
+//        adviserKeyGeneration();
+//        waitABit(1000);
         writeAdviserKey();
 
         consultClick();

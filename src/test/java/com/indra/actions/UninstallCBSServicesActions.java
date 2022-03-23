@@ -147,5 +147,39 @@ public class UninstallCBSServicesActions {
         return contadorPalabras;
 
     }
-
+    public String portabilidad(String operadorTransactionId,String portId,String donorId,String msisdn,String nip, String URL){
+        String response = given()
+                .headers("Content-type","text/xml;charset=UTF-8")
+                .body("<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:npc=\"http://NPCRMWS.hp.com/\">\n" +
+                        "<soapenv:Header/>\n" +
+                        "<soapenv:Body>\n" +
+                        "<npc:processRequest>\n" +
+                        "<inputXML><![CDATA[<urn:GenericNPMessage xmlns:urn=\"urn:ngn:mnp\">\n" +
+                        "<urn:MessageHeader>\n" +
+                        "<urn:MessageID>132</urn:MessageID>\n" +
+                        "<urn:MessageTimeStamp>2022-03-08T05:43:10.021-05:00</urn:MessageTimeStamp>\n" +
+                        "<urn:LSAID>101</urn:LSAID>\n" +
+                        "<urn:OperatorTrxID>"+operadorTransactionId+"</urn:OperatorTrxID>\n" +
+                        "<urn:NPTrxID>"+nip+"</urn:NPTrxID>\n" +
+                        "<urn:ClearingHouseID>1</urn:ClearingHouseID>\n" +
+                        "</urn:MessageHeader><urn:MessageContent>\n" +
+                        "<urn:GenServiceActivationRequest>\n" +
+                        "<urn:TNList>\n" +
+                        "<urn:NumberFrom>"+msisdn+"</urn:NumberFrom>\n" +
+                        "<urn:NumberTo>"+msisdn+"</urn:NumberTo>\n" +
+                        "<urn:PortID>"+portId+"</urn:PortID>\n"+
+                        "</urn:TNList>\n" +
+                        "<urn:DonorID>"+donorId+"</urn:DonorID>\n" +
+                        "<urn:RecipientID>102</urn:RecipientID>\n" +
+                        "</urn:GenServiceActivationRequest>\n" +
+                        "</urn:MessageContent>\n" +
+                        "</urn:GenericNPMessage>]]></inputXML>\n" +
+                        "</npc:processRequest>\n" +
+                        "</soapenv:Body>\n" +
+                        "</soapenv:Envelope>")
+                .post(URL)
+                .then().statusCode(200)
+                .extract().asString();
+        return response;
+    }
 }
