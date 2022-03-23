@@ -176,6 +176,7 @@ public class CesionPortalCRMActions extends CesionPortalCRMPage {
     public void btnaAdviserKeyClick(){
         getClaveAsesor().click();
     }
+
     public void writeAdviserKey(){
         enter(readFileCSV.getToken()).into(getCajonClaveAsesor());
         getCajonClaveAsesor().sendKeys(Keys.TAB);

@@ -87,7 +87,6 @@ Feature: Sanity limpieza y aprovisionamiento de recursos
     And se realiza la ejecucion de la shell de portacion
     Then Se deberia ver en pantalla unica la linea en estado activado la linea portada
 
-
   @PrepayPortability
   Scenario: se requiere realizar la reconexion de una linea
     Given Se ingresa al portal CRM para activacion

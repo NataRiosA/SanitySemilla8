@@ -76,7 +76,11 @@ public class CambioPrePosPage extends PageObject {
     @FindBy(xpath = "/html/body/div[1]/form/table/tbody/tr[1]/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td")
     WebElementFacade clic;
 
+    @FindBy(id="PlanschangeForm:j_id196:aseToken")
+    WebElementFacade claveAsesor;
 
+    @FindBy(xpath = "/html/body/div[1]/form/table/tbody/tr[1]/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td/div[5]/input")
+    WebElementFacade btnClave;
 
     @FindBy(xpath = "//a[@class='TabIcon DefaultPageIcon'][contains(.,'Consultas')]")
     WebElementFacade consultas;
@@ -95,6 +99,14 @@ public class CambioPrePosPage extends PageObject {
 
     @FindBy(id = "//*[@id='Order:cmdConsultar']")
     WebElementFacade searchButton;
+
+    public WebElementFacade getClaveAsesor() {
+        return claveAsesor;
+    }
+
+    public WebElementFacade getBtnClave() {
+        return btnClave;
+    }
 
     public WebElementFacade getClic() {
         return clic;
