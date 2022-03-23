@@ -102,9 +102,9 @@ public class ReconnectionActions extends ReconnectionPage {
 
         if(getPopUpDetails().isPresent()){
 
-            WebElement sms = getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:0:j_id307"));
-            WebElement data =getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:1:j_id307"));
-            WebElement telefonia =getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:2:j_id307"));
+            WebElement sms = getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:0:j_id311"));
+            WebElement data =getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:1:j_id311"));
+            WebElement telefonia =getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:2:j_id311"));
             String smstx = sms.getText();
             String datatx = data.getText();
             String telefoniatx = telefonia.getText();
@@ -138,9 +138,9 @@ public class ReconnectionActions extends ReconnectionPage {
 
         if(getPopUpDetails().isPresent()){
 
-            WebElement sms = getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:0:j_id307"));
-            WebElement data =getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:1:j_id307"));
-            WebElement telefonia =getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:2:j_id307"));
+            WebElement sms = getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:0:j_id311"));
+            WebElement data =getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:1:j_id311"));
+            WebElement telefonia =getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:2:j_id311"));
             String smstx = sms.getText();
             String datatx = data.getText();
             String telefoniatx = telefonia.getText();

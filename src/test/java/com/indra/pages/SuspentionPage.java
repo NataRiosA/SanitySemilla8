@@ -13,10 +13,10 @@ public class SuspentionPage extends PageObject {
     //j_id135:j_id294 --> pop ud detalles
     //iceDatTblCol1  -->  nombre y estado
 
-    @FindBy(id ="j_id135:j_id184" )
+    @FindBy(id ="j_id135:j_id188" )
     WebElementFacade linkDetails;
 
-    @FindBy(xpath="//div[@id='j_id135:j_id294']//table/tbody[1]/tr[1]/td[1]" )
+    @FindBy(xpath="//div[@id='j_id135:j_id298']//table/tbody[1]/tr[1]/td[1]" )
     WebElementFacade popUpDetails;
 
     @FindBy(id ="iceDatTblCol1" )

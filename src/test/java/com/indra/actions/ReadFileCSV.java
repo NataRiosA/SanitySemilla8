@@ -35,7 +35,7 @@ public class ReadFileCSV {    private BufferedReader reader;
         return token;
     }
     public String getToken(){
-        String response = readFile("C:\\SanitySemilla8\\src\\test\\resources\\config_data\\ShoppingBag.log").toString();
+        String response = readFile(".\\src\\test\\resources\\config_data\\ShoppingBag.log").toString();
         System.out.println(countTokens(response));
         return countTokens(response);//extractResponseInformation(response);
     }

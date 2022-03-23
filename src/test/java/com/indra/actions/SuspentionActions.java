@@ -102,19 +102,20 @@ public class SuspentionActions extends SuspentionPage {
 
         if(getPopUpDetails().isPresent()){
 
-            WebElement sms = getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:0:j_id307"));
-            WebElement data =getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:1:j_id307"));
-            WebElement telefonia =getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:2:j_id307"));
+            WebElement sms = getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:0:j_id311"));
+            WebElement data =getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:1:j_id311"));
+            WebElement telefonia =getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:2:j_id311"));
             String smstx = sms.getText();
             String datatx = data.getText();
             String telefoniatx = telefonia.getText();
+            System.out.println(smstx+datatx+telefoniatx);
             if(smstx.equals("Activo") && datatx.equals("Activo") && telefoniatx.equals("Activo")){
                 cont=1;
             }
         }
 
-        MatcherAssert.assertThat("la linea esta activa",
-                cont,Matchers.is(1) );
+        MatcherAssert.assertThat("la linea esta activa",cont,Matchers.is(1) );
+
         getClosePopUp().click();
         getBtnClean().click();
 
@@ -138,9 +139,9 @@ public class SuspentionActions extends SuspentionPage {
 
         if(getPopUpDetails().isPresent()){
 
-            WebElement sms = getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:0:j_id307"));
-            WebElement data =getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:1:j_id307"));
-            WebElement telefonia =getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:2:j_id307"));
+            WebElement sms = getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:0:j_id311"));
+            WebElement data =getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:1:j_id311"));
+            WebElement telefonia =getDriver().findElement(By.id("j_id135:idDataTableProductosSiebel:2:j_id311"));
             String smstx = sms.getText();
             String datatx = data.getText();
             String telefoniatx = telefonia.getText();
