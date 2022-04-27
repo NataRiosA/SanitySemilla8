@@ -63,6 +63,7 @@ public class PrepaidActivationActions extends PrepaidActivationPage {
         getCity().click();
         getValidate().click();
         enter("3222345678").into(getPhone());
+        waitABit(5000);
         getContinueActivationDemo().click();
         getConfirm().click();
 

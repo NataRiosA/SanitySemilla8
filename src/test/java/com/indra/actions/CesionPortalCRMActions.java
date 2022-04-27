@@ -53,7 +53,7 @@ public class CesionPortalCRMActions extends CesionPortalCRMPage {
         selectPlan();
         btnChangeContractClick();
         alertAcept();
-
+        waitABit(15000);
         getMensajes().waitUntilPresent();
 
         System.out.println(getMensajes().getText());

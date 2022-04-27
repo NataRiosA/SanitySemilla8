@@ -57,7 +57,7 @@ public class CesionPortalPosCRMActions extends CesionPortalCRMPage {
         selectPlan(planNumber);
         btnChangeContractClick();
         alertAcept();
-
+        waitABit(25000);
         getMensajes().waitUntilPresent();
 
         System.out.println(getMensajes().getText());
@@ -162,7 +162,7 @@ public class CesionPortalPosCRMActions extends CesionPortalCRMPage {
     }
 
     public void btnChangeContractClick(){
-        waitABit(1000);
+        waitABit(2000);
         Actions actions = new Actions(getDriver());
 
         JavascriptExecutor js = (JavascriptExecutor) getDriver();

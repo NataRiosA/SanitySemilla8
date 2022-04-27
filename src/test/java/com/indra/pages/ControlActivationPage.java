@@ -74,7 +74,7 @@ public class ControlActivationPage extends PageObject{
     @FindBy(xpath = "//div[contains(@id,'ActivacionesForm:tipoPlanItem321')]")
     WebElementFacade plan740;
 
-    @FindBy(xpath = "//div[contains(@id,'ActivacionesForm:tipoPlanItem346')]")
+    @FindBy(xpath = "//div[contains(@id,'ActivacionesForm:tipoPlanItem351')]")
     WebElementFacade plan1208;
 
     @FindBy(xpath = "//input[contains(@id,'ActivacionesForm:btnContinuarActivacionVenta')]")
