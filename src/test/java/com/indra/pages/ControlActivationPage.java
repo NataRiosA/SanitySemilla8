@@ -20,10 +20,10 @@ public class ControlActivationPage extends PageObject{
     @FindBy(xpath = "//img[contains(@id,'pbG1dfca009_2d52ed_2d45cd_2da543_2d6660573bef81:_viewRoot:j_id4:j_id10:j_id11:0::j_id12:handle:img:collapsed')]")
     WebElementFacade dropdownActivation;
 
-    @FindBy(xpath = "//img[contains(@id,'pbG1dfca009_2d52ed_2d45cd_2da543_2d6660573bef81:_viewRoot:j_id4:j_id10:j_id11:0:29::j_id14:handle:img:collapsed')]")
+    @FindBy(id = "pbG1dfca009_2d52ed_2d45cd_2da543_2d6660573bef81:_viewRoot:j_id4:j_id10:j_id11:0:1::j_id14:handle:img:collapsed")//"pbG1dfca009_2d52ed_2d45cd_2da543_2d6660573bef81:_viewRoot:j_id4:j_id10:j_id11:0:29::j_id14:handle:img:expanded")
     WebElementFacade dropdownPay;
 
-    @FindBy(xpath = "//a[contains(@id,'pbG1dfca009_2d52ed_2d45cd_2da543_2d6660573bef81:_viewRoot:j_id4:j_id10:j_id11:0:29:31::j_id17')]")
+    @FindBy(id="pbG1dfca009_2d52ed_2d45cd_2da543_2d6660573bef81:_viewRoot:j_id4:j_id10:j_id11:0:1:4::j_id17")
     WebElementFacade activator;
 
     @FindBy(xpath = "/html/body/form/div/div[2]/table/tbody/tr/td[2]/div/div/div[1]/span/span/span")
@@ -162,6 +162,8 @@ public class ControlActivationPage extends PageObject{
     @FindBy (className = "rf-cp-lbl-exp")
     WebElementFacade ActivationDetails;
 
+    @FindBy(xpath = "//*[@id='ActivacionesForm:idExpedicionIdentificacion']")
+    WebElementFacade expedicion;
     public WebElementFacade getSale() {
         return sale;
     }
@@ -356,5 +358,9 @@ public class ControlActivationPage extends PageObject{
 
     public WebElementFacade getPlan1208() {
         return plan1208;
+    }
+
+    public WebElementFacade getExpedicion(){
+        return expedicion;
     }
 }

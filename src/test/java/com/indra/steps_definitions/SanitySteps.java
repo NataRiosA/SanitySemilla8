@@ -44,6 +44,10 @@ public class SanitySteps{
     PortabilityPrepaidActions portabilityPrepaidActions = new PortabilityPrepaidActions(driver);
     PortabilityPostActivationActions portabilityPostActivationActions = new PortabilityPostActivationActions(driver);
 
+    CesionNitaNitActions cesionNit = new CesionNitaNitActions(driver);
+
+    ControlActivationNitActions controlActivationNitActions = new ControlActivationNitActions(driver);
+
     //-----------<Primer escenario>----------------
     @Given("^Se ejecutan procedimientos en bd y soapUi$")
     public void seEjecutanProcedimientosEnBdYSoapUi() throws SQLException {
@@ -308,6 +312,34 @@ public class SanitySteps{
     @Then("^Se deberia ver en pantalla unica la linea en estado activado la linea prepago portada$")
     public void seDeberiaVerEnPantallaUnicaLaLineaEnEstadoActivadoLaLineaPrepagoPortada() throws SQLException {
         portabilityPrepaidActions.validateLineTemporal1("1234567890");
+    }
+
+    //--------------<Escenario quince>---------------------
+
+    @When("^Se hace activacion de una linea nintendo con nit$")
+    public void seHaceActivacionDeUnaLineaNintendoConNit() throws InterruptedException {
+        controlActivationNitActions.initialRute();
+        controlActivationNitActions.customerInformation(dataExcelModels.getVendedorPostpago()
+                , dataExcelModels.getCedulaClienteNinNit());
+        controlActivationNitActions.activationInformation(dataExcelModels.getMsisdnNintendoNit(),dataExcelModels.getMsiNintendoNit());
+        controlActivationNitActions.demographicInformation();
+    }
+
+    @Then("^Se deberia ver en pantalla unica la linea activa nintendo con nit$")
+    public void seDeberiaVerEnPantallaUnicaLaLineaActivaNintendoConNit() {
+        controlActivationNitActions.consultSingleScreen(dataExcelModels.getMsisdnNintendoNit());
+    }
+    //--------------<Escenario dieciseis>---------------------
+
+    @When("^Se hace la cesion de contrato de una linea nit a nit$")
+    public void seHaceLaCesionDeContratoDeUnaLineaNitANit() throws JSchException, InterruptedException, AWTException {
+        cesionNit.initialRute();
+        cesionNit.executeContractAssignment(dataExcelModels.getMsisdnNintendoNit(),dataExcelModels.getClientNit(),"1210");
+    }
+
+    @Then("^Se deberia ver en pantalla unica la linea cedida con nit$")
+    public void seDeberiaVerEnPantallaUnicaLaLineaCedidaConNit() {
+        prepaidActivationActions.consultSingleScreen2(dataExcelModels.getMsisdnNintendoNit());
     }
 
 }

@@ -84,6 +84,17 @@ public class CesionPortalCRMPage extends PageObject {
     @FindBy(id="cesionContratoForm:j_id97:aseToken")
     WebElementFacade cajonClaveAsesor;
 
+    @FindBy(xpath = "//*[@id='cesionContratoForm:newIdField:newSubIdType']")
+    WebElementFacade client;
+
+    @FindBy(xpath = "/html/body/div[1]/form/table/tbody/tr/td[1]/table[1]/tbody/tr[2]/td/table/tbody/tr/td/div[2]/div/span[1]/select/option[2]")
+    WebElementFacade clientNit;
+
+    @FindBy(xpath = "//*[@id='cesionContratoForm:nombreField:nombre']")
+    WebElementFacade nameClient;
+
+    @FindBy(xpath = "//*[@id='cesionContratoForm:apellidoField:apellido']")
+    WebElementFacade lastNClient;
 
     public WebElementFacade getClaveAsesor() {
         return claveAsesor;
@@ -182,5 +193,21 @@ public class CesionPortalCRMPage extends PageObject {
 
     public WebElementFacade getBtnCambiarContrato() {
         return btnCambiarContrato;
+    }
+
+    public WebElementFacade getClient(){
+        return client;
+    }
+
+    public WebElementFacade getClientNit(){
+        return clientNit;
+    }
+
+    public WebElementFacade getLastNClient() {
+        return lastNClient;
+    }
+
+    public WebElementFacade getNameClient() {
+        return nameClient;
     }
 }
