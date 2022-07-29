@@ -24,7 +24,7 @@ public class LoginEposPage extends PageObject {
     @FindBy(xpath = "//span[contains(@id,'formMenu:j_id11_span')]")
     WebElementFacade clickLeave;
 
-    @FindBy(xpath = "//span[contains(@id,'formMenu:j_id12:anchor')]")
+    @FindBy(id = "formMenu:j_id12")
     WebElementFacade btnLeave;
 
     public WebElementFacade getUser() {

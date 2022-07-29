@@ -118,7 +118,6 @@ public class SanitySteps{
     @Then("^Se deberia ver en pantalla unica la linea activa en prepago$")
     public void seDeberiaVerEnPantallaUnicaLaLineaActivaEnPrepago() {
         prepaidActivationActions.consultSingleScreen(dataExcelModels.getMsisdnPrepago());
-
         //legalizacion del pedido
         pagoEquiposActions.rutaInicial();
         pagoEquiposActions.pagarEquipo(dataExcelModels.getCedulaClientePrepago(),dataExcelModels.getMsisdnPrepago());
@@ -131,7 +130,7 @@ public class SanitySteps{
         controlActivationActions.initialRute();
         controlActivationActions.customerInformation(dataExcelModels.getVendedorPostpago()
                 , dataExcelModels.getCedulaClientePostpago());
-        controlActivationActions.activationInformation(dataExcelModels.getMsisdnPostpago(),dataExcelModels.getMsiPostpago());
+        controlActivationActions.activationInformation(dataExcelModels.getMsisdnPostpago(),dataExcelModels.getMsiPostpago(),"739");
         controlActivationActions.demographicInformation();
     }
 

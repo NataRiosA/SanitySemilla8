@@ -32,7 +32,7 @@ public class LoginEposPageActions extends LoginEposPage {
 
     public void leave(){
         Actions actions = new Actions(getDriver());
-        WebElement leave = getDriver().findElement(By.id("formMenu:j_id11_span"));
+        WebElement leave = getDriver().findElement(By.id("formMenu:j_id11"));
         actions.moveToElement(leave).build().perform();
         getBtnLeave().click();
     }

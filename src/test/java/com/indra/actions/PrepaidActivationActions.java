@@ -57,6 +57,7 @@ public class PrepaidActivationActions extends PrepaidActivationPage {
     }
 
     public  void demographicInformation(){
+        waitABit(5000);
         getPaymentDepar().click();
         getDeparment().click();
         getPaymentCity().click();
@@ -66,9 +67,9 @@ public class PrepaidActivationActions extends PrepaidActivationPage {
         waitABit(5000);
         getContinueActivationDemo().click();
         getConfirm().click();
-
+        waitABit(10000);
         getActivationDetails().waitUntilPresent();
-
+        waitABit(10000);
         WebElement title = getDriver().findElement(By.className("tituloPagina"));
         MatcherAssert.assertThat("La activacion fue exitosa",title.getText(), Matchers.equalTo("ACTIVACION EXITOSA"));
     }

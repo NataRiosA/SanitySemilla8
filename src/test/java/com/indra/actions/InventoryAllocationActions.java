@@ -73,7 +73,7 @@ public class InventoryAllocationActions extends InventoryAllocationPage {
         getBtnCargaMasiva().click();
         Thread.sleep(1000);
         WebElement btnCargarArchivo = getDriver().findElement(By.id("formUpload:upload:file"));
-        btnCargarArchivo.sendKeys("C:\\Users\\nriosa\\Desktop\\SanitySemillas\\SanitySemilla8\\src\\test\\resources\\config_data\\Inventario.csv");
+        btnCargarArchivo.sendKeys("C:\\SanitySemilla8\\src\\test\\resources\\config_data\\Inventario.csv");
         Thread.sleep(2000);
         getBtnAccept().click();
         getBtnAcceptInventory().click();

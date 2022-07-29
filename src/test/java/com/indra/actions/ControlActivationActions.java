@@ -41,7 +41,7 @@ public class ControlActivationActions extends ControlActivationPage {
         getBtnContinue().click();
     }
 
-    public void activationInformation(String msisdn,String imsi) throws InterruptedException {
+    public void activationInformation(String msisdn,String imsi, String planNumber) throws InterruptedException {
         //enter("732111198172290").into(getImsi());
         //enter("3016875893").into(getMsisdn());
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
@@ -55,7 +55,7 @@ public class ControlActivationActions extends ControlActivationPage {
 
         js.executeScript("window.scrollBy(-820,0)");
         getPlan().waitUntilPresent();
-        selectPlan();
+        selectPlan(planNumber);
         getDriver().switchTo().defaultContent();
 
         js.executeScript("window.scrollBy(0,420)"); //Scroll vertically down by 1000 pixels
@@ -66,10 +66,11 @@ public class ControlActivationActions extends ControlActivationPage {
         continuar.click();
     }
 
-    public void selectPlan(){
-        Select dropDownPlan= new Select(getDriver().findElement(By.xpath("//select[@name='cesionContratoForm:j_id256']")));
-        dropDownPlan.selectByValue("739");
+    public void selectPlan(String planNumber){
+        Select dropDownPlan= new Select(getDriver().findElement(By.xpath("(//span[contains(@class,'rf-sel-btn-arrow')])[3]")));
+        dropDownPlan.selectByValue(planNumber);
     }
+
     public  void demographicInformation(){
         enter("Salazar londonio").into(getDistrict());
         getDropdownDeparment().click();
