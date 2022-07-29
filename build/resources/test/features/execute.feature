@@ -97,3 +97,15 @@ Feature: Sanity limpieza y aprovisionamiento de recursos
     And se crea la ventana de portacion en SoapUi prepago
     And se realiza la ejecucion de la shell de portacion
     Then Se deberia ver en pantalla unica la linea en estado activado la linea prepago portada
+
+  @portalCesionNitaNit
+  Scenario: se requiere realizar una cesion de contrato nit a nit
+    Given Se ingresa al portal CRM para activacion
+    When Se hace la cesion de contrato de una linea nit a nit
+    Then Se deberia ver en pantalla unica la linea cedida con nit
+
+  @portalNintendoNit
+  Scenario: se requiere realizar una activacion nintendo con nit
+    Given Se ingresa al portal CRM para activacion
+    When Se hace activacion de una linea nintendo con nit
+    Then Se deberia ver en pantalla unica la linea activa nintendo con nit
