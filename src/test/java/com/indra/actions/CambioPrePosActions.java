@@ -17,6 +17,11 @@ public class CambioPrePosActions extends CambioPrePosPage {
     DataExcelModels excelModels = new DataExcelModels();
     ReadFileCSV readFileCSV = new ReadFileCSV();
 
+    public void waitUntilExecuteChange( int time){
+        System.out.println("se esperara un total de "+time+ " milisegundos");
+        waitABit(time);
+    }
+
     public void initialRute(){
         postSaleClick();
         transactionClick();

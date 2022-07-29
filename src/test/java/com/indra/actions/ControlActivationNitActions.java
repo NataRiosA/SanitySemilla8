@@ -7,11 +7,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ControlActivationNitActions extends ControlActivationPage {
 
     public ControlActivationNitActions(WebDriver driver) {
         super(driver);
+    }
+
+    public void waitUntilExecuteChange( int time){
+        System.out.println("se esperara un total de "+time+ " milisegundos");
+        waitABit(time);
     }
 
     public void initialRute(){
@@ -38,7 +44,7 @@ public class ControlActivationNitActions extends ControlActivationPage {
         getBtnContinue().click();
     }
 
-    public void activationInformation(String msisdn,String imsi) throws InterruptedException {
+    public void activationInformation(String msisdn,String imsi,String planNumber) throws InterruptedException {
         //enter("732111198172290").into(getImsi());
         //enter("3016875893").into(getMsisdn());
         getAcceptRenew().click();
@@ -48,8 +54,7 @@ public class ControlActivationNitActions extends ControlActivationPage {
         getTypeSale().click();
         getJustSim().click();
         getPlan().waitUntilClickable();
-        getPlan().click();
-        getPlan740().click();
+        selectPlan(planNumber);
         getDriver().switchTo().defaultContent();
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollBy(0,420)"); //Scroll vertically down by 1000 pixels
@@ -58,6 +63,11 @@ public class ControlActivationNitActions extends ControlActivationPage {
         waitABit(500);
         WebElement continuar = getDriver().findElement(By.name("ActivacionesForm:btnContinuarActivacionVenta"));
         continuar.click();
+    }
+
+    public void selectPlan(String planNumber){
+        Select dropDownPlan= new Select(getDriver().findElement(By.xpath("//select[@name='cesionContratoForm:j_id256']")));
+        dropDownPlan.selectByValue(planNumber);
     }
 
     public  void demographicInformation(){

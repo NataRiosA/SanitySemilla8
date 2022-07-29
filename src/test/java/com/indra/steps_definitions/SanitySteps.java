@@ -184,7 +184,7 @@ public class SanitySteps{
        avangerActions.initialRute();
        avangerActions.customerInformation(dataExcelModels.getVendedorPostpago()
                 , dataExcelModels.getCedulaClienteAvanger());
-       avangerActions.activationInformation(dataExcelModels.getMsisdnAvanger(),dataExcelModels.getMsiAvanger());
+       avangerActions.activationInformation(dataExcelModels.getMsisdnAvanger(),dataExcelModels.getMsiAvanger(), "1208");
        avangerActions.demographicInformation();
     }
 
@@ -207,7 +207,12 @@ public class SanitySteps{
 
     @Then("^Se deberia ver en pantalla unica la linea en plan pos$")
     public void seDeberiaVerEnPantallaUnicaLaLineaEnPlanPos() {
+        cambioPosPreActions.waitUntilExecuteChange(60000);
         prepaidActivationActions.consultSingleScreen(dataExcelModels.getMsisdnPostpago());
+        //legalizacion del pedido
+        pagoEquiposActions.rutaInicial();
+        pagoEquiposActions.pagarEquipo(dataExcelModels.getCedulaClienteAvanger(),dataExcelModels.getMsisdnPostpago());
+
     }
 
     //-----------<Decimo escenario>----------------
@@ -220,7 +225,12 @@ public class SanitySteps{
 
     @Then("^Se deberia ver en pantalla unica la linea en plan pre$")
     public void seDeberiaVerEnPantallaUnicaLaLineaEnPlanPre() {
+        cambioPrePosActions.waitUntilExecuteChange(60000);
         prepaidActivationActions.consultSingleScreen2(dataExcelModels.getMsisdnPostpago());
+        //legalizacion del pedido
+        pagoEquiposActions.rutaInicial();
+        pagoEquiposActions.pagarEquipo(dataExcelModels.getCedulaClienteAvanger(),dataExcelModels.getMsisdnPostpago());
+
     }
 
     //-----------<Once escenario>----------------
@@ -271,7 +281,11 @@ public class SanitySteps{
 
     @Then("^Se deberia ver en pantalla unica la linea en estado activado$")
     public void seDeberiaVerEnPantallaUnicaLaLineaEnEstadoActivado() throws SQLException {
-        portabilityPostActivationActions.validateLineTemporal(dataExcelModels.getMsisdnPrepago());
+        portabilityPostActivationActions.waitUntilExecuteChange(60000);
+        portabilityPostActivationActions.validateLineTemporal(dataExcelModels.getMsisdnForPorting2());
+        //legalizacion del pedido
+        pagoEquiposActions.rutaInicial();
+        pagoEquiposActions.pagarEquipo(dataExcelModels.getClientPort(),dataExcelModels.getMsisdnForPorting2());
     }
 
     @When("^se ejecutan los procedimientos preventana$")
@@ -307,7 +321,7 @@ public class SanitySteps{
         portabilityPrepaidActions.initialRute();
         portabilityPrepaidActions.customerInformation(dataExcelModels.getVendedorPostpago()
                 , dataExcelModels.getCedulaClienteAvanger());
-        portabilityPrepaidActions.activationInformation("3045981684","3043208091","732111324707274");
+        portabilityPrepaidActions.activationInformation(dataExcelModels.getMsisdnPort1(),dataExcelModels.getMsisdnForPorting(),dataExcelModels.getMsiForPorting());
         portabilityPrepaidActions.selectNextBusinessDayFromCalendar();
         portabilityPrepaidActions.demographicInformation();
 
@@ -315,7 +329,13 @@ public class SanitySteps{
 
     @Then("^Se deberia ver en pantalla unica la linea prepago en estado activado$")
     public void seDeberiaVerEnPantallaUnicaLaLineaPrepagoEnEstadoActivado() throws SQLException {
+        portabilityPrepaidActions.waitUntilExecuteChange(60000);
+
         portabilityPrepaidActions.validateLineTemporal("3043208091");
+        //legalizacion del pedido
+        pagoEquiposActions.rutaInicial();
+        pagoEquiposActions.pagarEquipo(dataExcelModels.getCedulaClienteAvanger(),dataExcelModels.getMsisdnForPorting());
+
     }
 
     @Then("^se ejecutan los procedimientos preventana prepago$")
@@ -340,13 +360,18 @@ public class SanitySteps{
         controlActivationNitActions.initialRute();
         controlActivationNitActions.customerInformation(dataExcelModels.getVendedorPostpago()
                 , dataExcelModels.getCedulaClienteNinNit());
-        controlActivationNitActions.activationInformation(dataExcelModels.getMsisdnNintendoNit(),dataExcelModels.getMsiNintendoNit());
+        controlActivationNitActions.activationInformation(dataExcelModels.getMsisdnNintendoNit(),dataExcelModels.getMsiNintendoNit(),"740");
         controlActivationNitActions.demographicInformation();
     }
 
     @Then("^Se deberia ver en pantalla unica la linea activa nintendo con nit$")
     public void seDeberiaVerEnPantallaUnicaLaLineaActivaNintendoConNit() {
+        controlActivationNitActions.waitUntilExecuteChange(60000);
         controlActivationNitActions.consultSingleScreen(dataExcelModels.getMsisdnNintendoNit());
+        //legalizacion del pedido
+        pagoEquiposActions.rutaInicial();
+        pagoEquiposActions.pagarEquipo(dataExcelModels.getCedulaClienteNinNit(),dataExcelModels.getMsisdnNintendoNit());
+
     }
     //--------------<Escenario dieciseis>---------------------
 

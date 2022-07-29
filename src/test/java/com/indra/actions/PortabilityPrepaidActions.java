@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -20,6 +21,11 @@ public class PortabilityPrepaidActions extends PortabilityPrepaidPage {
     DataExcelModels dataExcelModels = new DataExcelModels();
     DatabasePortInActions databasePortInActions = new DatabasePortInActions();
     UninstallCBSServicesActions servicesActions = new UninstallCBSServicesActions();
+
+    public void waitUntilExecuteChange( int time){
+        System.out.println("se esperara un total de "+time+ " milisegundos");
+        waitABit(time);
+    }
 
     public void makePortabilityRequestAndDB(String msisdnPort) throws SQLException {
         validateLinesBd();
@@ -369,29 +375,34 @@ public class PortabilityPrepaidActions extends PortabilityPrepaidPage {
     public void consultSingleScreen1(String msisdn){
         getDriver().switchTo().defaultContent();
         getConsult().click();
-        getConsultPos().click();
-        getConsultIntegral().click();
+        //getConsultPos().click();
+        //getConsultIntegral().click();
         getCosultaPantallaUnica().click();
         WebElement iframe = getDriver().findElement(By.id("iframe"));
         getDriver().switchTo().frame(iframe);
         enter(msisdn).into(getMsisdn2());
         getSearchButton().click();
-        waitABit(1000);
+        waitABit(500);
         getGeneralCustomerInformation().waitUntilPresent();
 
-        WebElement plan = getDriver().findElement(By.id("j_id135:j_id157"));
+        WebElement plan = getDriver().findElement(By.id("j_id135:j_id161"));
         MatcherAssert.assertThat("el plan es prepago",
                 plan.getText(),Matchers.containsString("Plan Tigo Prepago") );
 
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollBy(0,520)");
 
+        Actions actions = new Actions(getDriver());
+        WebElement leave = getDriver().findElement(By.xpath("//span[text()='ACTIVACION']"));
+        actions.moveToElement(leave).build().perform();
+
         getHlrImpre().click();
-        waitABit(2000);
+        waitABit(1000);
         getHlr().click();
+        waitABit(1000);
+        js.executeScript("window.scrollBy(0,820)");
 
-
-        WebElement hrl = getDriver().findElement(By.xpath("//*[@id='j_id461:j_id465']"));
+        WebElement hrl = getDriver().findElement(By.xpath("//div[@class='icePnlClpsblCnt']//textarea[1]"));
         MatcherAssert.assertThat("el hrl es ",
                 hrl.getText(),Matchers.containsString("Operation is successful") );
     }
@@ -412,8 +423,8 @@ public class PortabilityPrepaidActions extends PortabilityPrepaidPage {
     public void consultSingleScreen2(String msisdn){
         getDriver().switchTo().defaultContent();
         getConsult().click();
-        getConsultPos().click();
-        getConsultIntegral().click();
+        //getConsultPos().click();
+        //getConsultIntegral().click();
         getCosultaPantallaUnica().click();
         WebElement iframe = getDriver().findElement(By.id("iframe"));
         getDriver().switchTo().frame(iframe);
@@ -422,17 +433,30 @@ public class PortabilityPrepaidActions extends PortabilityPrepaidPage {
         getSearchButton().click();
         waitABit(1000);
         getGeneralCustomerInformation().waitUntilPresent();
-        WebElement plan = getDriver().findElement(By.id("j_id135:j_id157"));
+        WebElement plan = getDriver().findElement(By.id("j_id135:j_id161"));
 
-        MatcherAssert.assertThat("el plan es pospago",
-                plan.getText(),Matchers.containsString("Pospago 5.") );
+        MatcherAssert.assertThat("el plan es prepago",
+                plan.getText(),Matchers.containsString("Plan Tigo Prepago") );
 
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
-        js.executeScript("window.scrollBy(0,420)"); //Scroll vertically down by 1000 pixels
+        js.executeScript("window.scrollBy(0,620)"); //Scroll vertically down by 1000 pixels
+
+        waitABit(1000);
+
+        Actions actions = new Actions(getDriver());
+        WebElement leave = getDriver().findElement(By.xpath("//span[text()='ACTIVACION']"));
+        actions.moveToElement(leave).build().perform();
+
+        getHlrImpre().click();
+
         getHlr().click();
-        WebElement hrl = getDriver().findElement(By.id("j_id473:j_id477"));
+
+        js.executeScript("window.scrollBy(0,820)");
+
+        WebElement hlr = getDriver().findElement(By.id("j_id393:j_id397"));
+
         MatcherAssert.assertThat("el hrl es ",
-                plan.getText(),Matchers.containsString("Operation is successful") );
+                hlr.getText(),Matchers.containsString("Operation is successful") );
     }
 
     public String portId(){

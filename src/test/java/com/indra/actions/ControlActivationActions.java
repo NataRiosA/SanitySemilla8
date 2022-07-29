@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ControlActivationActions extends ControlActivationPage {
 
@@ -54,8 +55,7 @@ public class ControlActivationActions extends ControlActivationPage {
 
         js.executeScript("window.scrollBy(-820,0)");
         getPlan().waitUntilPresent();
-        getPlan().click();
-        getPlan740().click();
+        selectPlan();
         getDriver().switchTo().defaultContent();
 
         js.executeScript("window.scrollBy(0,420)"); //Scroll vertically down by 1000 pixels
@@ -66,6 +66,10 @@ public class ControlActivationActions extends ControlActivationPage {
         continuar.click();
     }
 
+    public void selectPlan(){
+        Select dropDownPlan= new Select(getDriver().findElement(By.xpath("//select[@name='cesionContratoForm:j_id256']")));
+        dropDownPlan.selectByValue("739");
+    }
     public  void demographicInformation(){
         enter("Salazar londonio").into(getDistrict());
         getDropdownDeparment().click();
