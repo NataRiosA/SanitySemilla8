@@ -11,6 +11,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 public class ControlActivationActions extends ControlActivationPage {
 
     public ControlActivationActions(WebDriver driver) {
@@ -55,6 +57,8 @@ public class ControlActivationActions extends ControlActivationPage {
 
         js.executeScript("window.scrollBy(-820,0)");
         getPlan().waitUntilPresent();
+        getPlan().click();
+
         selectPlan(planNumber);
         getDriver().switchTo().defaultContent();
 
@@ -67,8 +71,14 @@ public class ControlActivationActions extends ControlActivationPage {
     }
 
     public void selectPlan(String planNumber){
-        Select dropDownPlan= new Select(getDriver().findElement(By.xpath("(//span[contains(@class,'rf-sel-btn-arrow')])[3]")));
-        dropDownPlan.selectByValue(planNumber);
+        List<WebElement> dropDownPlan= getDriver().findElements(By.className("rf-sel-opt"));
+
+        for(WebElement a : dropDownPlan){
+            if (a.getText().contains(planNumber)) {
+                a.click();
+                break;
+            }
+        }
     }
 
     public  void demographicInformation(){
